@@ -8,14 +8,28 @@ import { OrganizationSwitcher} from "@clerk/nextjs";
 export default function nav() {
    
   return (
-    <nav className="border-b-1 p-2 flex justify-between items-center">
-      <div>
-        <h1 className="text-2xl font-semibold">Blog Application</h1>
-      </div>
-      <div className="flex gap-5">
-        <OrganizationSwitcher afterSelectOrganizationUrl="/org/:slug" />
-        <UserButton />
-      </div>
-    </nav>
+    <nav className="bg-[#0f172a]/80 backdrop-blur-md shadow-md border-b border-white/10 p-4 px-6 flex justify-between items-center sticky top-0 z-50">
+  <div>
+    <h1 className="text-3xl font-bold text-white tracking-wide">📝 Blog Application</h1>
+  </div>
+  <div className="flex items-center gap-4">
+    <OrganizationSwitcher
+      afterSelectOrganizationUrl="/org/:slug"
+      appearance={{
+        elements: {
+          rootBox: "text-white",
+        },
+      }}
+    />
+    <UserButton
+      appearance={{
+        elements: {
+          avatarBox: "ring-2 ring-white/30 hover:ring-white transition",
+        },
+      }}
+    />
+  </div>
+</nav>
+
   );
 }

@@ -2,7 +2,7 @@ import Nav from "@/app/components/nav"
 
 export default function Home() {
   return (
-    <main className=""> 
+    <main className="bg-amber-100"> 
       <Nav/>
     </main>
   );
