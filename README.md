@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🏢 Tenant App
 
-First, run the development server:
+A modern full-stack **multi-tenant** application built using [Next.js App Router](https://nextjs.org/docs/app), [Clerk](https://clerk.com/) for authentication and organization management, [Neon](https://neon.tech) for serverless PostgreSQL, and [Drizzle ORM](https://orm.drizzle.team/) for type-safe database access.
+
+---
+
+## ✨ Features
+
+* 🔐 **Authentication & Multi-Tenancy** with Clerk (supports user accounts & organizations)
+* ⚡️ **Fast & Scalable** serverless architecture using Neon PostgreSQL
+* 🧠 **Type-safe database layer** using Drizzle ORM
+* 💻 **Built with Next.js App Router** for modern, file-based routing
+* 🎨 Custom UI using TailwindCSS & Geist Font
+
+---
+
+## 📦 Tech Stack
+
+* **Frontend**: Next.js 14 (App Router)
+* **Authentication**: Clerk
+* **Database**: Neon PostgreSQL (Serverless)
+* **ORM**: Drizzle ORM
+* **Styling**: Tailwind CSS + Geist Font
+* **Deployment**: Vercel
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/tenant-app.git
+cd tenant-app
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set Up Environment Variables
+
+Create a `.env.local` file in the root directory and add the following:
+
+```env
+DATABASE_URL=your_neon_postgres_url
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_FRONTEND_API=your_clerk_frontend_api
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+```
+
+> Get your Neon database URL from [Neon](https://neon.tech/) and your Clerk keys from [Clerk Dashboard](https://dashboard.clerk.com/).
+
+### 4. Run the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗃️ Database Setup (Drizzle ORM)
 
-## Learn More
+1. Define your schema in `drizzle/schema.ts`
+2. Use Drizzle CLI to generate SQL migrations:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx drizzle-kit push
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Ensure your `drizzle.config.ts` is properly configured.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 👥 How It Works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Users can **sign up or log in** using Clerk.
+* After logging in, users can **create or join organizations**.
+* Each organization acts as a **tenant**, with isolated data (multi-tenant architecture).
+* Data is securely stored in **Neon PostgreSQL**, and accessed via **Drizzle ORM** with full TypeScript safety.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧪 Learn More
+
+* [Clerk Docs](https://clerk.dev/docs)
+* [Drizzle ORM Docs](https://orm.drizzle.team/docs)
+* [Neon Docs](https://neon.tech/docs/introduction)
+* [Next.js App Router](https://nextjs.org/docs/app/building-your-application)
+
+---
+
+## 📤 Deploy on Vercel
+
+1. Push your code to GitHub.
+2. Import the project on [Vercel](https://vercel.com).
+3. Add environment variables in Vercel dashboard.
+4. Deploy 🎉
+
+---
+
+## 📄 License
+
+MIT © \[RAHUL GUPTA]
+
+---
+
